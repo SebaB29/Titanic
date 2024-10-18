@@ -55,3 +55,6 @@ Durante el preprocesamiento se tomaron varias decisiones clave:
 <div align="justify">
 El proceso de ETL permitió identificar problemas en los datos, como valores faltantes, redundancias y duplicados, que fueron solucionados a través de técnicas de preprocesamiento. La base de datos resultante está lista para consultas SQL, lo que permite realizar análisis avanzados de manera eficiente. Este proyecto destacó la importancia de un correcto flujo de ETL en la preparación de datos para su análisis y visualización.
 </div>
+
+## 📄 Licencia  
+Este proyecto está bajo la licencia MIT. Para más detalles, consulta el archivo [LICENSE](./LICENSE).
