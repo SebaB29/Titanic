@@ -1,60 +1,78 @@
-# Titanic 🛳️
-Trabajo Práctico para la materia **Base de Datos (TA044)**
+# 🛳️ Titanic Data Engineering: ETL Pipeline
 
-## 📑Contenido
+A comprehensive Data Engineering project focused on the **ETL (Extract, Transform, Load)** process. This repository demonstrates how to take raw, inconsistent data from the classic Titanic dataset and transform it into a clean, normalized SQLite database ready for professional analysis and SQL querying.
 
-1. [Descripción](#descripción)
-2. [Integrantes](#integrantes)
-3. [Objetivos](#objetivos)
-4. [Análisis Exploratorio](#análisis-exploratorio)
-5. [Preprocesamiento](#preprocesamiento)
-6. [Conclusiones](#conclusiones)
 
-## 📄Descripción <a name="descripción"></a>
 
-<div align="justify">
-Este trabajo práctico consiste en desarrollar una aplicación que implemente el proceso de <b>ETL</b> (Extract, Transform, Load) sobre un conjunto de datos. El objetivo es limpiar, transformar y cargar los datos en una base de datos SQLite, garantizando que estén listos para ser utilizados en análisis posteriores. Para esto, se ha seleccionado el famoso dataset de Titanic, disponible en Kaggle.
-</div>
+# 📸 Overview
+Data is rarely clean. This project tackles real-world data issues—such as missing values, redundant features, and duplicate records—by implementing a robust pipeline that ensures data integrity and consistency before storage.
 
-**Dataset**: https://www.kaggle.com/datasets/akshaysehgal/titanic-data-for-data-preprocessing
+# 📍 Table of Contents
+- [📝 Description](#-description)
+  - [🎯 Project Objectives](#-project-objectives)
+  - [🛠️ ETL Workflow](#️-etl-workflow)
+- [🔍 Exploratory Data Analysis (EDA)](#-exploratory-data-analysis-eda)
+- [🏗️ Transformation Logic](#️-transformation-logic)
+- [🛠️ Technologies](#️-technologies)
+- [👥 Team Members](#-team-members)
+- [📄 License](#-license)
 
-## 👥Integrantes <a name="integrantes"></a>
+---
 
-| Nombre                    |
-|---------------------------|
-| Sebastián Brizuela        |
-| Victoria Avalos           |
-| Gonzalo Manuel Calderón   |
-| Mateo Liberini            |
-| Franco Agustín Rodriguez  |
-| Urbano Sol Guadalupe      |
+# 📝 Description
+Developed for the **Database (TA044)** course, this project implements a full ETL lifecycle. We utilized the Titanic dataset (Kaggle) to practice data cleaning techniques and schema design, culminating in the loading of refined data into an **SQLite** relational database.
 
-## 🎯Objetivos <a name="objetivos"></a>
+## 🎯 Project Objectives
+- Build a functional ETL pipeline from scratch.
+- Resolve data quality issues (nulls, duplicates, inconsistent types).
+- Design and populate a relational database schema optimized for SQL queries.
 
-- Implementar un flujo de trabajo **ETL** que incluya la extracción, transformación y carga de datos.
-- Resolver problemas típicos de los datos, como valores nulos, duplicados y formatos inconsistentes.
-- Garantizar que los datos estén listos para ser cargados y utilizados en una base de datos **SQLite**.
+## 🛠️ ETL Workflow
+1. **Extract:** Pulling raw CSV data from Kaggle sources.
+2. **Transform:** Applying cleaning logic using Python and Pandas.
+3. **Load:** Exporting the final structured data into an SQLite engine.
 
-## 🔍Análisis Exploratorio <a name="análisis-exploratorio"></a>
 
-<div align="justify">
-El análisis comenzó con el dataset de Titanic, el cual contiene información relevante de los pasajeros, como edad, sexo, y si sobrevivieron o no. Se realizó un análisis exploratorio para obtener una vista general del dataset, observando la cantidad de filas, columnas y valores faltantes. Además, se generaron visualizaciones de la distribución de los datos y las relaciones entre las variables, como un boxplot para la distribución de la edad por sexo y un gráfico de barras para los valores nulos por columna.
-</div>
 
-## 🛠️Preprocesamiento <a name="preprocesamiento"></a>
+---
 
-Durante el preprocesamiento se tomaron varias decisiones clave:
-- Eliminación de columnas redundantes como `male`, `class`, y `deck` (debido a gran cantidad de valores nulos).
-- Imputación de valores nulos en la columna `age` basados en el promedio por sexo.
-- Eliminación de filas duplicadas, manteniendo un registro por pasajero y añadiendo una columna extra con el número de duplicados.
-- Normalización de los datos para asegurar consistencia en el formato.
-- Finalmente, los datos se cargaron en una base de datos SQLite.
+# 🔍 Exploratory Data Analysis (EDA)
+Before transformation, an exhaustive EDA was performed to understand the data's health:
+- **Null Analysis:** Identified critical gaps in columns like `age` and `deck`.
+- **Distribution Check:** Visualized age ranges per gender using boxplots.
+- **Redundancy Audit:** Spotted overlapping columns that provided no additional information.
 
-## 📝Conclusiones <a name="conclusiones"></a>
+---
 
-<div align="justify">
-El proceso de ETL permitió identificar problemas en los datos, como valores faltantes, redundancias y duplicados, que fueron solucionados a través de técnicas de preprocesamiento. La base de datos resultante está lista para consultas SQL, lo que permite realizar análisis avanzados de manera eficiente. Este proyecto destacó la importancia de un correcto flujo de ETL en la preparación de datos para su análisis y visualización.
-</div>
+# 🏗️ Transformation Logic
+Key engineering decisions made during the process:
+- **Feature Selection:** Dropped redundant columns (`male`, `class`) and high-null columns (`deck`).
+- **Smart Imputation:** Filled missing `age` values using the mean average calculated by gender groups.
+- **De-duplication:** Removed duplicate records while preserving an occurrence count to maintain data history.
+- **Normalization:** Standardized formats to ensure the SQLite schema constraints were met.
 
-## 📄 Licencia  
-Este proyecto está bajo la licencia MIT. Para más detalles, consulta el archivo [LICENSE](./LICENSE).
+---
+
+# 🛠️ Technologies
+- **Language:** Python 3.x
+- **Data Manipulation:** Pandas, NumPy
+- **Visualization:** Matplotlib, Seaborn
+- **Database:** SQLite
+- **Environment:** Jupyter Notebook / Python Scripts
+
+---
+
+# 👥 Team Members
+| Name |
+| :--- |
+| **Sebastián Brizuela** |
+| **Victoria Avalos** |
+| **Gonzalo Manuel Calderón** |
+| **Mateo Liberini** |
+| **Franco Agustín Rodriguez** |
+| **Urbano Sol Guadalupe** |
+
+---
+
+# 📄 License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
